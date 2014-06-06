@@ -25,13 +25,6 @@ CREATE TABLE IF NOT EXISTS `pigbudget`.`gasto` (
 )
 ENGINE = InnoDB
 
-CREATE TABLE IF NOT EXISTS `pigbudget`.`meta_ahorro` (
-  `cod_ma` INT NOT NULL AUTO_INCREMENT,
-  `descripcion_ma` VARCHAR(100) NOT NULL ,
-  PRIMARY KEY (`cod_ma`)
-)
-ENGINE = InnoDB
-
 --RELACIONES
 CREATE TABLE IF NOT EXISTS `pigbudget`.`usuario_gasto` (
   `cod_ug` INT NOT NULL AUTO_INCREMENT, 
@@ -59,7 +52,7 @@ ENGINE = InnoDB
 CREATE TABLE IF NOT EXISTS `pigbudget`.`usuario_meta` (
   `cod_um` INT NOT NULL,
   `cod_usuario` INT NOT NULL,
-  `cod_ma` INT NOT NULL,
+  `descripcion_ma` VARCHAR(45) NOT NULL,
   `monto_ma` FLOAT NOT NULL,
   `fecha_ini` DATE NOT NULL,
   `fecha_fin` DATE,

@@ -40,6 +40,7 @@
         public $fechaIngreso;
     }
     class Ahorro {
+        public $codUsuario;
         public $montoAhorro;
         public $fechaAhorro;
     }

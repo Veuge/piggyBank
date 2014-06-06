@@ -1,7 +1,7 @@
 <?php
     require "../database/conexion.php"; 
     require "../database/models.php";
-    require "../database/ahorroService.php";
+    require "./database/ahorroService.php";
 
     header('Content-Type: application/json');
 
@@ -10,6 +10,10 @@
         echo(json_encode($ahorro));
     }
     elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $ahorro = UsuarioAhorro::
+        $ahorro = new Ahorro;
+        $ahorro->codUsuario = 1; //codigo de usuario 1
+        $ahorro->montoAhorro = $_POST['montoAhorro']; //codigo de ingreso 1
+        AhorroService::insertar($ahorro);
+        echo (json_encode($ahorro));
     }
 ?>

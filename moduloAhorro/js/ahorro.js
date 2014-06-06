@@ -15,13 +15,14 @@ $(document).ready(function(){
         alert("Pon el dinero en tu alcancia tambien!");
         $.get('restAhorro.php').done(function(resultado){
             var JSONObject= { // objeto JSON con valores de inputs
-                "montoIngreso":resultado[0].montoAhorro
+                "montoAhorro":resultado[0].montoAhorro
             };
-            // alert(JSON.stringify (JSONObject));
             $.post("restAhorro.php", JSONObject).done(function(data) { //AJAX con jquery envia a rest.php objeto JSON
-                
+                alert(JSON.stringify (JSONObject));
             }).error(function(){alert("error!!!")});
         });
+        var cad = '<p><strong>Felicidades!!! ya ahorraste hoy</strong>';
+        $("#appendAhorro").append(cad);
     })
 });
 
