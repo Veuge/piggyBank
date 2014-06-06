@@ -1,0 +1,86 @@
+/*body{
+background-color: #ffcaca;
+}*/
+.icon{
+    cursor: pointer;
+}
+.white {
+    color: white;
+}
+.btn-lg {
+    font-size: 38px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+.box > .icon {
+    text-align: center;
+    position: relative;
+}
+.box > .icon > .image {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    width: 88px;
+    height: 88px;
+    border: 7px solid white;
+    line-height: 88px;
+    border-radius: 50%;
+    /*background: #669900;*/
+    vertical-align: middle;
+}
+.box > .icon > .image > i {
+    font-size: 40px !important;
+    /*color: #c5e26d !important;*/
+}
+
+.box > .icon > .info {
+    margin-top: -40px;
+    background: rgba(0, 0, 0, 0.04);
+    border: 2px solid #e0e0e0;
+    padding: 15px 0 10px 0;
+}
+.box > .icon > .info > h3.title {
+    color: #222;
+    font-weight: 500;
+}
+    .box > .icon > .info > p {
+    /*color: #666;*/
+    line-height: 1.5em;
+    /*margin: 20px;*/
+}
+/*.box .space {
+    height: 30px;
+}*/
+.ingreso{
+    background-color: #669900;
+    color:#c5e26d;
+}
+.gasto{
+    background-color: #e67e22; 
+    color: #ffd980;
+}
+.ahorro{
+    background-color: #9933cc; 
+    color: #d6adeb;
+}
+
+/*animaciones*/
+
+/*.box{
+  transition-property: background;
+  transition-duration: .2s, 1s;
+  transition-timing-function: linear;
+}
+.box:hover {
+  background: #ff7b29;
+}*/
+
+.box > .icon > .image > i {
+    color: white !important;
+    transition-property: font-size;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+}
+.box > .icon:hover > .image > i {
+    font-size: 45px !important;
+}
