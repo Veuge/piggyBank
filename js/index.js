@@ -9,15 +9,6 @@ $(document).ready(function(){
         window.location="moduloAhorro/ahorro.html";
     });
 
-    $.get('restAhorro.php').done(function(resultado){
-        for(var i = 0; i < resultado.length; ++ i) {
-            var cad = '<p class="text-success">Puedes ahorrar:   ';
-            cad += resultado[i].montoAhorro;
-            cad += ' Bs';
-            $("#appendAhorro").append(cad);
-        }
-    });
-
     $('#grafica_ig').on('click', function(e){
         $('#titulo').hide();
         $('#menu').hide();
