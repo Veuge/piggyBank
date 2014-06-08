@@ -13,9 +13,13 @@
             }
             return $arrayAhorro;
         }
-        public static function insertar($objeto) {
+        public static function insertarAhorro($objeto) {
             $db = new Database('pigbudget', 'localhost', 'root', 'cinguifields');
             $ahorro = $db->executeQuery("insert into usuario_ahorro (cod_usuario, monto_a, fecha_a) values ($objeto->codUsuario, $objeto->montoAhorro, sysdate())");
+        }
+        public static function insertarMeta($object){
+            $db = new Database('pigbudget', 'localhost', 'root', 'cinguifields');
+            $meta = $db->executeQuery("insert into usuario_meta (descripcion_ma, fecha_ini) values ('$object->descripcionMA', $object->montoMA, sysdate()");
         }
     }
 ?>

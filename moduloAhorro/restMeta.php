@@ -10,10 +10,10 @@
         echo(json_encode($ahorro));
     }
     else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $ahorro = new Ahorro;
-        $ahorro->codUsuario = 1; //codigo de usuario 1
-        $ahorro->montoAhorro = $_POST['montoAhorro']; //codigo de ingreso 1
-        AhorroService::insertarAhorro($ahorro);
-        echo (json_encode($ahorro));
+        $meta = new MetaAhorro;
+        $meta->descripcionMA = $_POST['paraQue']; //codigo de usuario 1
+        $meta->montoMA = $_POST['monto']; //codigo de ingreso 1
+        AhorroService::insertarMeta($meta);
+        echo (json_encode($meta));
     }
 ?>
