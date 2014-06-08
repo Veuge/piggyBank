@@ -17,6 +17,7 @@ $(document).ready(function(){
 
         $.get('restGraficasIngreso.php').done(function(vectorDeIngresos){
             $.get('restGraficasGasto.php').done(function(vectorDeGastos){
+                var labels;
                 var labelsIngreso, labelsGasto, valuesIngreso, valuesGasto;
                 var ultimoIngreso, ultimoGasto;
                 var stepWidth;
@@ -40,7 +41,7 @@ $(document).ready(function(){
                     labelsGasto = funcionLabel(vectorDeGastos);
                     ultimoGasto = Date.parse(vectorDeGastos[vectorDeGastos.length-1].fechaGasto);
                 }
-                if(vectorDeIngresos,length === 0 && vectorDeGastos.length === 0){
+                if(vectorDeIngresos.length === 0 && vectorDeGastos.length === 0){
                     stepWidth = 5;
                     labels = labelsIngreso;
                     funcionGraficar(stepWidth, labels, valuesIngreso, valuesGasto);
@@ -59,6 +60,7 @@ $(document).ready(function(){
                             valuesIngreso = reformularVector(valuesIngreso, aDias);
                         }
                     }
+                    labels = labelsIngreso;
                     var maxI = funcionMayor(valuesIngreso);
                     var maxG = funcionMayor(valuesGasto);
                     $("canvas").each(function(i,el){
