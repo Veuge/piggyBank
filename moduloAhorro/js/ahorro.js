@@ -1,9 +1,7 @@
 $(document).ready(function(){
-    $('#nueva_meta').on('click', function(e){
+    $('#nueva_meta').on('click', funcionMostrar){
 
-        $('#informacionAhorro').hide();
-        $('#container_nm').hide();
-        $('#formularioAhorro').show();
+        
     });
     $.get('restAhorro.php').done(function(resultado){
         for(var i = 0; i < resultado.length; ++ i) {
@@ -31,6 +29,7 @@ $(document).ready(function(){
         var monto_ma = document.getElementById("monto").value;
         
         var JSONObjectMeta = {
+            usuario: 1,
             paraque: paraque,
             monto: monto_ma
         }
@@ -45,6 +44,11 @@ $(document).ready(function(){
 });
 
 // patrones de prueba
+var funcionMostrar = function(e){
+    $('#informacionAhorro').hide();
+    $('#container_nm').hide();
+    $('#formularioAhorro').show();
+}
 var funcionVolver = function(e){
     $('#informacionAhorro').show();
     $('#container_nm').show();
