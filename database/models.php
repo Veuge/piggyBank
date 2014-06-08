@@ -44,9 +44,10 @@
         public $fechaAhorro;
     }
     class MetaAhorro {
-        public $descripcionMA;
-        public $montoMA;
-        // public $fechaIni;
+        public $codUsuario;
+        public $descripcionma;
+        public $montoma;
+        public $fechaIni;
         // public $fechaFin;
     }
 ?>

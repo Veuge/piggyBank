@@ -11,8 +11,8 @@
     }
     else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $meta = new MetaAhorro;
-        $meta->descripcionMA = $_POST['paraQue'];
-        $meta->montoMA = $_POST['monto'];
+        $meta->descripcionma = $_POST['paraque'];
+        $meta->montoma = $_POST['monto'];
         AhorroService::insertarMeta($meta);
         echo (json_encode($meta));
     }

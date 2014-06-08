@@ -19,7 +19,7 @@
         }
         public static function insertarMeta($object){
             $db = new Database('pigbudget', 'localhost', 'root', 'cinguifields');
-            $db->executeQuery("insert into usuario_meta(cod_um,cod_usuario,descripcion_ma,monto_ma,fecha_ini,fecha_fin) VALUES (, , '$object->descripcionMA',$object->montoMA, '', '')");
+            $db->executeQuery("insert into usuario_meta(cod_usuario,descripcion_ma,monto_ma,fecha_ini) VALUES ($object->codUsuario,'$object->descripcionma',$object->montoma, sysdate())");
         }
     }
 ?>

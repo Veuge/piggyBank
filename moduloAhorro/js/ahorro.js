@@ -27,11 +27,11 @@ $(document).ready(function(){
         $("#appendAhorro").append(cad);
     });
     $('#submit').on('click', function(e){
-        var paraQue = document.getElementById("descripcion_ma").value;
+        var paraque = document.getElementById("descripcion_ma").value;
         var monto_ma = document.getElementById("monto").value;
         
         var JSONObjectMeta = {
-            paraQue: paraQue,
+            paraque: paraque,
             monto: monto_ma
         }
 
