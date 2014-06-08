@@ -21,5 +21,21 @@
             $db = new Database('pigbudget', 'localhost', 'root', 'cinguifields');
             $db->executeQuery("insert into usuario_meta(cod_usuario,descripcion_ma,monto_ma,fecha_ini) VALUES ($object->codUsuario,'$object->descripcionma',$object->montoma, sysdate())");
         }
+        public static function obtenerMetas(){
+            $db = new Database('pigbudget', 'localhost', 'root', 'cinguifields');
+            $metas = $db->executeQuery("select descripcion_ma, monto_ma, fecha_ini from usuario_meta");
+            $arrayMetas = array();
+
+            foreach ($metas as $row) {
+                $ahorro = new MetaAhorro();
+
+                $ahorro->descripcionma = $row['descripcion_ma'];
+                $ahorro->montoma = $row['monto_ma'];
+                $ahorro->fechaIni = $row['fecha_ini'];
+
+                $arrayMetas[] = $ahorro;
+            }
+            return $arrayMetas;
+        }
     }
 ?>
