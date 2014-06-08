@@ -1,5 +1,4 @@
 <?php
-    //aqui todas las clases relacionadas con tablas de bd
     class UsuarioGasto{
         public $codUsuario;
         public $codGasto;
@@ -47,7 +46,7 @@
     class MetaAhorro {
         public $descripcionMA;
         public $montoMA;
-        public $fechaIni;
-        public $fechaFin;
+        // public $fechaIni;
+        // public $fechaFin;
     }
 ?>
