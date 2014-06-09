@@ -42,6 +42,7 @@
         public $codUsuario;
         public $montoAhorro;
         public $fechaAhorro;
+        public $totalAhorro;
     }
     class MetaAhorro {
         public $codUsuario;

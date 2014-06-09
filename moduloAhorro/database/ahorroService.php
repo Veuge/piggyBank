@@ -2,7 +2,8 @@
     class AhorroService{
         public static function calcularAhorro(){
             $db = new Database('pigbudget', 'localhost', 'root', 'cinguifields');
-            $ahorro = $db->executeQuery("select ifnull(tmpIngresos.totalIngresos - tmpGastos.totalGastos, '0') ahorro from (select sum(monto_i) totalIngresos from usuario_ingreso WHERE fecha_i = curdate() group by fecha_i) tmpIngresos, (select sum(monto_g) totalGastos from usuario_gasto WHERE fecha_g = curdate() group by fecha_g)tmpGastos");
+            $ahorro = $db->executeQuery("select ifnull(tmpIngresos.totalIngresos - tmpGastos.totalGastos,'0') ahorro from (select sum(monto_i) totalIngresos from usuario_ingreso WHERE fecha_i = curdate() group by fecha_i) tmpIngresos,(select sum(monto_g) totalGastos from usuario_gasto WHERE fecha_g = curdate() group by fecha_g) tmpGastos");
+            $total = $db->executeQuery("select sum(monto_a)totalAhorro from usuario_ahorro");
             $arrayAhorro = array();
 
             foreach ($ahorro as $row) {
@@ -10,6 +11,12 @@
                 $aho->montoAhorro = $row['ahorro'];
 
                 $arrayAhorro[] = $aho;
+            }
+
+            foreach ($total as $row) {
+                $usrT = new Ahorro ();
+                $usrT->totalAhorro = $row['totalAhorro'];
+                $arrayAhorro[] = $usrT;
             }
             return $arrayAhorro;
         }

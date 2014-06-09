@@ -16,12 +16,35 @@ $(document).ready(function(){
     
     // OBTENER METAS DE AHORRO
     $.get('restMeta.php').done(function(data){
-        for(var i = 0; i < data.length; ++ i){
-            var cadena = '<div class="box"><article class="info"><dl class="dl-horizontal"><dt>Para que ahorras:</dt><dd>'
-            cadena += data[i].descripcionma + '</dd><dt>Cuanto necesitas:</dt><dd>'
-            cadena += data[i].montoma + ' Bs</dd><dt>Progreso:</dt><dd><section class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="sr-only">80% Complete</span></div></section></dd></dl></article></div><br/>'
-            $('#sectorMetas').append(cadena);
-        }
+        $.get('restAhorro.php').done(function(resultado){
+            var totalA = parseInt(resultado[resultado.length - 1].totalAhorro);
+            var porcentaje, claseP;
+            for(var i = 0; i < data.length; ++ i){
+                if (totalA < data[i].montoma){
+                    porcentaje = totalA * 100 / parseInt(data[i].montoma);
+                    // alert(porcentaje + ' %');
+                }
+                else {
+                    porcentaje = 100;
+                }
+                if(porcentaje <= 25)
+                    claseP = 'danger';
+                else if (porcentaje > 25 && porcentaje <= 50)
+                    claseP = 'warning';
+                else if (porcentaje > 50 && porcentaje <= 75)
+                    claseP = 'info';
+                else if (porcentaje > 75 && porcentaje <= 100)
+                    claseP = 'success';
+
+                var cadena = '<div class="box"><article class="info"><dl class="dl-horizontal"><dt>Para que ahorras:</dt><dd>'
+                cadena += data[i].descripcionma + '</dd><dt>Cuanto necesitas:</dt><dd>'
+                cadena += data[i].montoma + ' Bs</dd><dt>Progreso:</dt><dd><section class="progress"><div class="progress-bar progress-bar-';
+                cadena += claseP + '" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: '
+                cadena += porcentaje + '% ;"><span class="sr-only">80% Complete</span></div></section></dd></dl></article></div><br/>'
+                $('#sectorMetas').append(cadena);
+                porcentaje = 0;
+            }
+        });
     });
 });
 
