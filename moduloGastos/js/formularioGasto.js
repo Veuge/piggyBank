@@ -1,6 +1,6 @@
 $(document).ready(function(){ // cuando este listo el documento
     
-    $.get('rest.php').done(function(resultado){
+    $.get('../../serverSide/moduloGastos/rest.php').done(function(resultado){
         for(var i=0; i<resultado.length; ++i){
             var cadena = "<option value='"+resultado[i].codGasto+"'>"+resultado[i].nombreGasto+"</option>";
             //alert(cadena);
@@ -23,7 +23,7 @@ var funcionGuardar = function(e){
         // valido = false;
     }
     else{
-        $.get('rest.php').done(function(listaGastos){
+        $.get('../../serverSide/moduloGastos/rest.php').done(function(listaGastos){
             var gastoValido = true;
             for(var i = 0; i < listaGastos.length; ++i) {
                 if (nuevoGasto === listaGastos[i].nombreGasto){
@@ -41,8 +41,8 @@ var funcionGuardar = function(e){
                     "nombreGasto":  nuevoGasto,
                     "descripcionGasto": "esto es nuevo"
                 };
-                $.post("restGasto.php", JSONObjectGasto).done(function(datos){
-                    $.get('rest.php').done(function(resultado){
+                $.post("../../serverSide/moduloGastos/restGasto.php", JSONObjectGasto).done(function(datos){
+                    $.get('../../serverSide/moduloGastos/rest.php').done(function(resultado){
                         for(var i=0; i<resultado.length; ++i){
                             var cadena = "<option value='"+resultado[i].codGasto+"'>"+resultado[i].nombreGasto+"</option>";
                             $("#gasto").append(cadena);
@@ -91,7 +91,7 @@ var funcionGuardarIngreso = function (e) { //captura evento click a boton submit
             "montoGasto":monto,
             "fechaGasto": fecha
         };
-        $.post("rest.php", JSONObject).done(function( data ) { //AJAX con jquery envia a rest.php objeto JSON
+        $.post("../../serverSide/moduloGastos/rest.php", JSONObject).done(function( data ) { //AJAX con jquery envia a rest.php objeto JSON
             window.location="gastos.html";
             var show = JSON.stringify (data); //show = cadena de objeto JSON
         }).error(function(){alert("error!!!")}); //en caso de error muestra mensaje

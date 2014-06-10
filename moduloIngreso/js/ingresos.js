@@ -14,7 +14,7 @@ $(document).ready(function(){
     // $('#def_ingreso').on('click', function(e){
     //     alert("definicion ingreso!");
     // });
-    $.get('restIngreso.php').done(function(resultado){
+    $.get('../../serverSide/moduloIngreso/restIngreso.php').done(function(resultado){
 
         for(var i=0; i<resultado.length-1; ++i){
             var cadena = "<tr><td>"
@@ -36,7 +36,7 @@ $(document).ready(function(){
         $('.tabla').hide();
         $('.grafica').show();
 
-        $.get('restGraficas.php').done(function(arrayFechaTotal){
+        $.get('../../serverSide/moduloIngreso/restGraficas.php').done(function(arrayFechaTotal){
             var dia = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
             var labels = [];
             var values = [];

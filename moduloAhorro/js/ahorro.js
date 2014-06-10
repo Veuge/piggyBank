@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('#volver').on('click', funcionVolver);
 
     // OBTENER MONTO DE AHORRO (arreglar)
-    $.get('restAhorro.php').done(function(resultado){
+    $.get('../../serverSide/moduloAhorro/restAhorro.php').done(function(resultado){
         for(var i = 0; i < resultado.length; ++ i) {
             var cad = '<p><strong>Hoy puedes ahorrar: </strong>';
             cad += resultado[i].montoAhorro;
@@ -15,8 +15,8 @@ $(document).ready(function(){
     });
     
     // OBTENER METAS DE AHORRO
-    $.get('restMeta.php').done(function(data){
-        $.get('restAhorro.php').done(function(resultado){
+    $.get('../../serverSide/moduloAhorro/restMeta.php').done(function(data){
+        $.get('../../serverSide/moduloAhorro/restAhorro.php').done(function(resultado){
             var totalA = parseInt(resultado[resultado.length - 1].totalAhorro);
             var porcentaje, claseP;
             for(var i = 0; i < data.length; ++ i){
@@ -61,11 +61,11 @@ var funcionVolver = function(e){
 }
 var funcionAhorrar = function(e){
     alert("Pon el dinero en tu alcancia tambien!");
-    $.get('restAhorro.php').done(function(resultado){
+    $.get('../../serverSide/moduloAhorro/restAhorro.php').done(function(resultado){
         var JSONObject= { // objeto JSON con valores de inputs
             "montoAhorro":resultado[0].montoAhorro
         };
-        $.post("restAhorro.php", JSONObject).done(function(data) { //AJAX con jquery envia a rest.php objeto JSON
+        $.post("../../serverSide/moduloAhorro/restAhorro.php", JSONObject).done(function(data) { //AJAX con jquery envia a rest.php objeto JSON
             alert(JSON.stringify (JSONObject));
         }).error(function(){alert("error!!!")});
     });
@@ -80,7 +80,7 @@ var funcionNuevaMeta = function(e){
         paraque: paraque,
         monto: monto_ma
     }
-    $.post('restMeta.php', JSONObjectMeta).done(function(data){
+    $.post('../../serverSide/moduloAhorro/restMeta.php', JSONObjectMeta).done(function(data){
         alert(JSON.stringify(data));
         funcionVolver();
     }).error(function(){alert("error!!!")});

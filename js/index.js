@@ -15,8 +15,8 @@ $(document).ready(function(){
         $('#botones').hide();
         $('.grafica').show();
 
-        $.get('restGraficasIngreso.php').done(function(vectorDeIngresos){
-            $.get('restGraficasGasto.php').done(function(vectorDeGastos){
+        $.get('../serverSide/restGraficasIngreso.php').done(function(vectorDeIngresos){
+            $.get('../serverSide/restGraficasGasto.php').done(function(vectorDeGastos){
                 var labels;
                 var labelsIngreso, labelsGasto, valuesIngreso, valuesGasto;
                 var ultimoIngreso, ultimoGasto;

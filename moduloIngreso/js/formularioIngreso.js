@@ -1,6 +1,6 @@
 $(document).ready(function(){ // cuando este listo el documento
     
-    $.get('rest.php').done(function(resultado){
+    $.get('../../serverSide/moduloIngreso/rest.php').done(function(resultado){
         for(var i=0; i<resultado.length; ++i){
             var cadena = "<option value='"+resultado[i].codIngreso+"'>"+resultado[i].nombreIngreso+"</option>";
             //alert(cadena);
@@ -23,7 +23,7 @@ var funcionGuardar = function(e){
         // valido = false;
     }
     else{
-        $.get('rest.php').done(function(listaIngresos){
+        $.get('../../serverSide/moduloIngreso/rest.php').done(function(listaIngresos){
             var ingresoValido = true;
             for(var i = 0; i < listaIngresos.length; ++i) {
                 if (nuevoIngreso === listaIngresos[i].nombreIngreso){
@@ -41,8 +41,8 @@ var funcionGuardar = function(e){
                     "nombreIngreso":  nuevoIngreso,
                     "descripcionIngreso": "esto es nuevo"
                 };
-                $.post("restIngreso.php", JSONObjectIngreso).done(function(datos){
-                    $.get('rest.php').done(function(resultado){
+                $.post("../../serverSide/moduloIngreso/restIngreso.php", JSONObjectIngreso).done(function(datos){
+                    $.get('../../serverSide/moduloIngreso/rest.php').done(function(resultado){
                         for(var i=0; i<resultado.length; ++i){
                             var cadena = "<option value='"+resultado[i].codIngreso+"'>"+resultado[i].nombreIngreso+"</option>";
                             $("#ingreso").append(cadena);
@@ -92,7 +92,7 @@ var funcionGuardarIngreso = function (e) { //captura evento click a boton submit
             "montoIngreso":monto,
             "fechaIngreso": fecha
         };
-        $.post("rest.php", JSONObject).done(function( data ) { //AJAX con jquery envia a rest.php objeto JSON
+        $.post("../../serverSide/moduloIngreso/rest.php", JSONObject).done(function( data ) { //AJAX con jquery envia a rest.php objeto JSON
             window.location="ingresos.html"; //show = cadena de objeto JSON
         }).error(function(){alert("error!!!")}); //en caso de error muestra mensaje
     }
