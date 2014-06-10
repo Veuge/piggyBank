@@ -8,7 +8,7 @@ background-color: #ffcaca;
     color: white;
 }
 .btn-lg {
-    font-size: 38px;
+    /*font-size: 38px;*/
     line-height: 1.33;
     border-radius: 6px;
 }
@@ -43,7 +43,7 @@ background-color: #ffcaca;
     color: #222;
     font-weight: 500;
 }
-    .box > .icon > .info > p {
+.box > .icon > .info > p {
     /*color: #666;*/
     line-height: 1.5em;
     /*margin: 20px;*/
@@ -51,10 +51,10 @@ background-color: #ffcaca;
 /*.box .space {
     height: 30px;
 }*/
-.ingreso{
+/*.ingreso{
     background-color: #669900;
     color:#c5e26d;
-}
+}*/
 .gasto{
     background-color: #e67e22; 
     color: #ffd980;
@@ -83,4 +83,13 @@ background-color: #ffcaca;
 }
 .box > .icon:hover > .image > i {
     font-size: 45px !important;
+}
+.logo{
+    height:35.84px; 
+    width:28px;
+    padding: 0;
+}
+.logo > img{
+    width: 35.84px;
+    height: 28px;
 }
