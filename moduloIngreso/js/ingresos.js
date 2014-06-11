@@ -1,19 +1,19 @@
 $(document).ready(function(){
 
-    // $('#tuto').on('click', function(e){
-    //     $('#first-popover').popover({ 
-    //         trigger: "click", 
-    //         placement: 'right',
-    //         toggle : "popover",
-    //         content : "<div id='def_ingreso'>¿Que es un ingreso?</div>",
-    //         container: 'body',
-    //         html: true
-    //     });
-    //     $('#first-popover').popover('show');
-    // });
-    // $('#def_ingreso').on('click', function(e){
-    //     alert("definicion ingreso!");
-    // });
+    $('#tuto').on('click', function(e){
+        $('#first-popover').popover({ 
+            trigger: "click", 
+            placement: 'right',
+            toggle : "popover",
+            content : "<div id='def_ingreso'>¿Que es un ingreso?</div>",
+            container: 'body',
+            html: true
+        });
+        $('#first-popover').popover('show');
+    });
+    $(document).on('click', '#def_ingreso', function(e){
+        alert("definicion ingreso!");
+    });
     $.get('../../serverSide/moduloIngreso/restIngreso.php').done(function(resultado){
 
         for(var i=0; i<resultado.length-1; ++i){

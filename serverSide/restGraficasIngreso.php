@@ -1,4 +1,5 @@
 <?php 
+    require "./config.php";
     require "./database/conexion.php"; 
     require "./database/models.php";
     require "./moduloIngreso/database/usuarioIngresoService.php";

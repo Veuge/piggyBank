@@ -1,7 +1,7 @@
 <?php 
     class GastoService{
         public static function obtenerDatos(){
-            $db = new Database ("pigbudget", "localhost", "root", "cinguifields");
+            $db = new Database (DATABASE, HOST, USERNAME, PASSWORD);
             $result = $db->executeQuery("select * from gasto");
 
             $arrayGasto = array();
@@ -17,7 +17,7 @@
             return $arrayGasto;
         }
         public static function obtenerCodigo($cadenaNombre){
-            $db = new Database ("pigbudget", "localhost", "root", "cinguifields");
+            $db = new Database (DATABASE, HOST, USERNAME, PASSWORD);
             $result = $db->executeQuery("select cod_g from gasto where nombre_g like '$cadenaNombre'");
 
             $arrayGasto = array();
@@ -33,7 +33,7 @@
             return $arrayGasto;
         }
         public static function obtenerNombre($codigoGasto){
-            $db = new Database ("pigbudget", "localhost", "root", "cinguifields");
+            $db = new Database (DATABASE, HOST, USERNAME, PASSWORD);
             $result = $db->executeQuery("select nombre_g from gasto where cod_g = $codigoGasto");
 
             $arrayGasto = array();
@@ -47,7 +47,7 @@
             return $arrayGasto;
         }
         public static function insertar($objeto){
-            $db = new Database ("pigbudget", "localhost", "root", "cinguifields");
+            $db = new Database (DATABASE, HOST, USERNAME, PASSWORD);
             $db->executeQuery("insert into gasto (nombre_g) values ('$objeto->nombreGasto')");
         }
     }
