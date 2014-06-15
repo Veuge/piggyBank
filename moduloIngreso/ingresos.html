@@ -4,10 +4,11 @@
 		<title>REGISTRO DE INGRESOS</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="../css/index.css">
-		<link rel="stylesheet" type="text/css" href="css/graficos.css">
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="css/graficos.css">
 		<link rel="stylesheet" href="../css/vendors/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/mis-estilos-Ingresos.css">
+		<link rel="stylesheet" href="../css/vendors/iconos/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/mis-estilos-Ingresos.css">
 		<script src="../js/vendor/jquery.js"></script>
 				
 	</head>
@@ -53,7 +54,7 @@
 							<th class="success">Monto</th>
 						</tr>
 					</thead>
-					<tbody id="result">
+					<tbody  class="bellota" id="result">
 							
 					</tbody>
 					<tfoot id="total">
@@ -63,8 +64,8 @@
 			</div>
 		</div>
 		<div class = "container tabla navbar-fixed-bottom">
-			<a href="formularioIngreso.html" class="btn btn-primary btn-lg active" role="button">Agregar</a>
-			<button class="btn btn-primary btn-lg active" id="stats" role="button">Grafica</button>
+			<a href="formularioIngreso.html" class="btn btn-primary btn-lg active" role="button"><i class="fa fa-plus-square-o fa-lg"></i>&nbsp; Agregar</a>
+			<button class="btn btn-primary btn-lg active" id="stats" role="button"><i class="fa fa-bar-chart-o fa-lg"></i>&nbsp; Grafica</button>
 		</div>
 		<div class="container grafica clearfix" style="display: none">
 		</br>

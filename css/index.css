@@ -1,6 +1,10 @@
-/*body{
-background-color: #ffcaca;
-}*/
+@font-face {
+    font-family: bellota;
+    src: url(./fonts-local/Bellota-Regular.otf);
+}
+.bellota{
+    font-family: bellota;
+}
 .icon{
     cursor: pointer;
 }

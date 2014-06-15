@@ -1,8 +1,5 @@
 <?php 
-    require "../config.php";
-    require "../database/conexion.php"; 
-    require "../database/models.php";
-    require "./database/usuarioGastoService.php";
+    require '../loader.php';
 
     header('Content-Type: application/json');
 

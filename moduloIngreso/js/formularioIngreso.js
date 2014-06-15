@@ -11,6 +11,7 @@ $(document).ready(function(){ // cuando este listo el documento
     $('#volver-form').on('click', funcionVolverFormulario);
     $('#submit').on('click', funcionGuardarIngreso);
     $('#volver').on('click', funcionVolverIngresos);
+    $('#back-error').on('click', funcionVolverError);
 });
 
 var funcionGuardar = function(e){
@@ -19,14 +20,14 @@ var funcionGuardar = function(e){
     //VALIDACION PARA NUEVO TIPO DE INGRESO!
     if(nuevoIngreso === '') {
         $("#nuevo-tipo").addClass("has-error");
-        alert("No puede ser vacio");
-        // valido = false;
     }
     else{
         $.get('../../serverSide/moduloIngreso/rest.php').done(function(listaIngresos){
             var ingresoValido = true;
             for(var i = 0; i < listaIngresos.length; ++i) {
                 if (nuevoIngreso === listaIngresos[i].nombreIngreso){
+                    $('#personaje').show();
+                    $('')
                     alert("Ya existe ese tipo de ingreso");
                     $("#nuevo-tipo").addClass("has-error");
                     ingresoValido = false;
@@ -64,16 +65,25 @@ var funcionGuardarIngreso = function (e) { //captura evento click a boton submit
     var fecha = document.getElementById("date").value; //var fecha igual al valor de input fecha
     //validar valores vacios
     if (ingreso === '0' || ingreso === '-1') {
-        //alert("No selecciono un tipo de ingreso!");
+        seleccionError(1);
         $('.type').addClass('has-error');
+        $('#animar').addClass('animated shake');
+        $('#personaje').show();
+        $('#ingreso-form').hide();
     }
     if(monto === ''){
-        //alert("No ingreso el monto del ingreso");
+        seleccionError(2);
         $('.mont').addClass('has-error');
+        $('#animar').addClass('animated shake');
+        $('#personaje').show();
+        $('#ingreso-form').hide();
     }
     if(fecha === ''){
-        //alert("No selecciono una fecha");
+        seleccionError(3);
         $('.fech').addClass('has-error');
+        $('#animar').addClass('animated shake');
+        $('#personaje').show();
+        $('#ingreso-form').hide();
     }
     if (ingreso !== '0' && ingreso !== '-1' && monto !== '' && fecha !== ''){
         $('.type').removeClass('has-error');
@@ -97,7 +107,7 @@ var funcionGuardarIngreso = function (e) { //captura evento click a boton submit
         }).error(function(){alert("error!!!")}); //en caso de error muestra mensaje
     }
     else{
-        alert('Errores en el formulario marcados con rojo');
+        // alert('Errores en el formulario marcados con rojo');
     }
 };
 var funcionDropdown = function (e) {
@@ -117,3 +127,26 @@ var funcionVolverFormulario = function(e){
 var funcionVolverIngresos = function (e){
     window.location="ingresos.html";
 };
+var funcionVolverError = function (e){
+    $('#personaje').hide();
+    $('#ingreso-form').show();
+    $('.sacar' ).remove();
+};
+var seleccionError = function(cod){
+    if(cod === 1){
+        var error = "<p class='sacar'>&#42; No seleccionaste el tipo de ingreso</p>";
+        $('.mens-error').append(error);
+    }
+    else if(cod === 2){
+        var error = "<p class='sacar'>&#42; No escribiste el monto de ingreso</p>";
+        $('.mens-error').append(error);
+    }
+    else if(cod === 3){
+        var error = "<p class='sacar'>&#42; No seleccionaste una fecha</p>";
+        $('.mens-error').append(error);
+    }
+    else if(cod === 4){
+        var error = "<p class='sacar'>&#42; No escribiste un nuevo tipo de ingreso</p>";
+        $('.mens-error').append(error);
+    }
+}

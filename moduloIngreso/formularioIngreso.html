@@ -5,9 +5,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="../css/vendors/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/index.css">
-		<link rel="stylesheet" type="text/css" href="css/mis-estilos-Ingresos.css">
-		<link rel="stylesheet" type="text/css" href="css/mis-estilos-Formulario.css">
+		<link rel="stylesheet" href="../css/vendors/animate/animate.min.css">
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="css/mis-estilos-Ingresos.css">
+		<link rel="stylesheet" href="css/mis-estilos-Formulario.css">
 		<script src="../js/vendor/jquery.js"></script>
 	</head>
 	<body>
@@ -39,60 +40,60 @@
 		<br/>
 		
 		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h3 class="titulo">REGISTRO</h3>
-				</div>
-			</div>
+			<article class="row">
+				<section class="col-sm-12">
+					<h3 class="titulo">REGISTRO DE INGRESOS</h3>
+				</section>
+			</article>
 			<div class="form-horizontal" role="form" id="ingreso-form">
-				<div class="form-group control-group type">
+				<article class="form-group control-group type">
 					<label for="ingreso" class="col-sm-2 control-label">Tipo</label>
-					<div class="col-sm-10 dropdown1">
-						<select id="ingreso" class="form-control dropdown col-sm-10 ingreso">
+					<section class="col-sm-10 dropdown1">
+						<select id="ingreso" class="form-control dropdown col-sm-10 ingreso bellota">
 							<option value="0">Seleccione tipo</option>
 							<option value="-1" class="new">Nuevo</option>
 						</select>
 						<button class="btn btn-default">Nuevo</button>
-					</div>
-				</div>
-			<!-- </div> -->		
-			
-			
-				<div class="form-inline" role="form" style="display:none" id="nuevo-tipo">
+					</section>
+				</article>			
+				<article class="form-inline" role="form" style="display:none" id="nuevo-tipo">
 					<label for="ingreso" class="col-sm-2 control-label">Nuevo Tipo de Ingreso</label>
 					</br>
-					<div class="col-sm-10">
+					<section class="col-sm-10">
 						</br>
-						<input type="text" class="form-control" id="ingreso1" placeholder="¿Por qué recibiste el dinero?">
+						<input type="text" class="form-control bellota" id="ingreso1" placeholder="¿Por qué recibiste el dinero?">
 						</br>
 						<button class="btn btn-default" id="guardar">Guardar</button>
 						<button id="volver-form" class="btn btn-default">Volver</button>
-					</div>
-				</div>
-			
-					
-			<!-- <div class="form-horizontal" role="form"> -->		
-				<div class="form-group control-group mont">
+					</section>
+				</article>
+				<article class="form-group control-group mont">
 					<label for="monto" class="col-sm-2 control-label">Monto</label>
-					<div class="col-sm-10">
-						<input type="number" class="form-control monto" id="monto" placeholder="¿Cuánto dinero recibiste?" min="0" step="0.1">
-					</div>
-				</div>
-				<div class="form-group control-group fech">
+					<section class="col-sm-10">
+						<input type="number" class="form-control monto bellota" id="monto" placeholder="¿Cuánto dinero recibiste?" min="0" step="0.1">
+					</section>
+				</article>
+				<article class="form-group control-group fech">
 					<label for="fecha" class="col-sm-2 control-label">Fecha</label>
-					<div class="col-sm-10">
-						<input type="date" class="form-control date" id="date">
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
+					<section class="col-sm-10">
+						<input type="date" class="form-control date bellota" id="date">
+					</section>
+				</article>
+				<article class="form-group">
+					<section class="col-sm-offset-2 col-sm-10">
 						<button id="submit" type="submit" class="btn btn-success guardar">Guardar</button>
 						<button id="volver" type="button" class="btn btn-success">Volver</button>
-					</div>
+					</section>
+				</article>
+			</div>
+			<div class='center-block' id="personaje" style="display:none;">
+				<img src="../images/error.png" class="img-responsive" id="animar">
+				<div class="alert alert-danger mens-error">
+					<p><strong>ERROR!</strong> algo esta mal, pinte con rojo donde hay error</p>
 				</div>
-			<!-- </div> -->
+				<button id="back-error" type="button" class="btn btn-success">Volver</button>
+			</div>
 		</div>
-		
 		<script type="text/javascript" src="js/formularioIngreso.js"></script>
 		<script type="text/javascript" src="../js/vendor/bootstrap.js"></script>
 	</body>
