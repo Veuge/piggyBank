@@ -8,10 +8,10 @@ Podrá ver gráficamente sus gastos, ahorros e ingresos.
 
 ##Requerimientos de elaboracion
 
---Dispositivo Android 2.3 en adelante
---Editor de texto Sublime Text 2
---Apache Cordova
---HTML5 – CSS – Javascript 
---Bootstrap – Jquery
---Wow.js
---Animate.css
+-- Dispositivo Android 2.3 en adelante
+-- Editor de texto Sublime Text 2
+-- Apache Cordova
+-- HTML5 – CSS – Javascript 
+-- Bootstrap – Jquery
+-- Wow.js
+-- Animate.css
