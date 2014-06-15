@@ -8,8 +8,9 @@ $(document).ready(function(){
     $('#a_ahorro').on('click', function(e){
         window.location="moduloAhorro/ahorro.html";
     });
-
+    $('#back-error').on('click', funcionVacio);
     $('#grafica_ig').on('click', function(e){
+        $('#nav').show();
         $('#titulo').hide();
         $('#menu').hide();
         $('#botones').hide();
@@ -45,6 +46,9 @@ $(document).ready(function(){
                     stepWidth = 5;
                     labels = labelsIngreso;
                     funcionGraficar(stepWidth, labels, valuesIngreso, valuesGasto);
+                    $('#personaje').show();
+                    $('#animar').addClass("animated shake");
+                    $('.grafica').hide();
                 }
                 else if(vectorDeIngresos.length != 0 || vectorDeGastos.length != 0) {
                     var diferenciaFechas = ultimoIngreso - ultimoGasto;
@@ -86,6 +90,7 @@ $(document).ready(function(){
         $('#menu').show();
         $('#botones').show();
         $('.grafica').hide();
+        $('#nav').hide();
     });
 });
 
@@ -121,7 +126,7 @@ var funcionLabel = function (vectorDeObjetos) {
         posicion_nueva--;
     }
     return labels;
-}
+};
 
 var funcionValues = function (vectorDeObjetos, cad) {
     var values = [];
@@ -163,7 +168,7 @@ var funcionValues = function (vectorDeObjetos, cad) {
         posicion_nueva--;
     }
     return values;
-}
+};
 
 var reformularVector = function (vector, indice) {
     var nuevoVector = [];
@@ -176,7 +181,7 @@ var reformularVector = function (vector, indice) {
         ayuda --;
     }
     return nuevoVector;
-}
+};
 var funcionMayor = function (vector) {
     var max = 0;
 
@@ -186,7 +191,7 @@ var funcionMayor = function (vector) {
         }
     }
     return max;
-}
+};
 var funcionGraficar = function (stepWidth, labels, valuesIngreso, valuesGasto) {
     $("canvas").each(function(i,el){
         $(el).attr({
@@ -220,4 +225,9 @@ var funcionGraficar = function (stepWidth, labels, valuesIngreso, valuesGasto) {
     }
     var ctx = document.getElementById("grafica_combinada").getContext("2d");
     var myNewChart = new Chart(ctx).Line(data, options); 
+};
+var funcionVacio = function(e){
+    $('#personaje').hide();
+    $('#personaje').removeClass("animated shake");
+    $('.grafica').show();
 }

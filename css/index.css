@@ -81,12 +81,6 @@
 
 .box > .icon > .image > i {
     color: white !important;
-    transition-property: font-size;
-    transition-duration: 0.5s;
-    transition-timing-function: linear;
-}
-.box > .icon:hover > .image > i {
-    font-size: 45px !important;
 }
 .logo{
     height:35.84px; 
@@ -96,4 +90,16 @@
 .logo > img{
     width: 35.84px;
     height: 28px;
+}
+#oscuro{
+    color:black;
+}
+.btn-default:focus{
+    background-color: #0a0a0a;
+}
+.btn-default{
+    background-color: black;
+}
+.btn-default:hover{
+    background-color: #101010;
 }
