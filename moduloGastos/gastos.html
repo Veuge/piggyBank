@@ -63,8 +63,8 @@
 			</div>
 		</div>
 		<div class = "container tabla navbar-fixed-bottom">
-			<a href="formularioGasto.html" class="btn btn-primary btn-lg active" role="button"><i class="fa fa-plus-square-o fa-lg"></i>&nbsp; Agregar</a>
-			<button class="btn btn-primary btn-lg active" id="stats" role="button"><i class="fa fa-bar-chart-o fa-lg"></i>&nbsp; Grafica</button>
+			<a href="formularioGasto.html" class="btn btn-primary active" role="button"><i class="fa fa-plus-square-o fa-lg"></i>&nbsp; Agregar</a>
+			<button class="btn btn-primary active" id="stats" role="button"><i class="fa fa-bar-chart-o fa-lg"></i>&nbsp; Grafica</button>
 		</div>
 		<div class="container grafica clearfix" style="display: none">
 		</br>
@@ -77,6 +77,15 @@
 					<button id="get-back" class="btn btn-success guardar">Volver</button>
             	</div>
             </div>	
+		</div>
+		</br>
+		</br>
+		<div class='center-block' id="personaje" style="display:none;">
+			<img src="../images/error.png" class="img-responsive" id="animar">
+			<div class="alert alert-info mens-error">
+                <p><strong>UPSSS</strong> no hay nada que mostrar! ¿Que tal si agregas un nuevo INGRESO?</p>
+            </div>
+			<button id="back-error" type="button" class="btn btn-success">Volver</button>
 		</div>
 		<script type="text/javascript" src="../js/vendor/bootstrap.js"></script>
 		<script type="text/javascript" src="js/gastos.js"></script>

@@ -3,7 +3,7 @@
         public static function calcularAhorro(){
             $db = new Database(DATABASE, HOST, USERNAME, PASSWORD);
             $ahorro = $db->executeQuery("select ifnull(tmpIngresos.totalIngresos - tmpGastos.totalGastos,'0') ahorro from (select sum(monto_i) totalIngresos from usuario_ingreso WHERE fecha_i = curdate() group by fecha_i) tmpIngresos,(select sum(monto_g) totalGastos from usuario_gasto WHERE fecha_g = curdate() group by fecha_g) tmpGastos");
-            $total = $db->executeQuery("select sum(monto_a)totalAhorro from usuario_ahorro");
+            $total = $db->executeQuery("select ifnull(sum(monto_a), '0')totalAhorro from usuario_ahorro");
             $arrayAhorro = array();
 
             foreach ($ahorro as $row) {

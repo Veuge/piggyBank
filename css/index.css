@@ -103,3 +103,7 @@
 .btn-default:hover{
     background-color: #101010;
 }
+#animar {
+    width: 60%;
+    margin: auto;
+}

@@ -227,7 +227,11 @@ var funcionGraficar = function (stepWidth, labels, valuesIngreso, valuesGasto) {
     var myNewChart = new Chart(ctx).Line(data, options); 
 };
 var funcionVacio = function(e){
+    $('#titulo').show();
     $('#personaje').hide();
-    $('#personaje').removeClass("animated shake");
-    $('.grafica').show();
+    $('#animar').removeClass("animated shake");
+    $('#menu').show();
+    $('#botones').show();
+    $('.grafica').hide();
+    $('#nav').hide();
 }
