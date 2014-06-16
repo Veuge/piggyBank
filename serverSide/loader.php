@@ -10,7 +10,7 @@
     //     require "config-server.php";
     //     echo "missing!";
     // }
-    require "config-local.php";
+    require "config-server.php";
     require "database/conexion.php"; 
     require "database/models.php";
     require "moduloAhorro/database/ahorroService.php";
