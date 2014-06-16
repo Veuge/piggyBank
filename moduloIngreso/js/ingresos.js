@@ -17,7 +17,7 @@ $(document).ready(function(){
     // $(document).on('click', '#def_ingreso', function(e){
     //     alert("definicion ingreso!");
     // });
-    $.get('../../serverSide/moduloIngreso/restIngreso.php').done(function(resultado){
+    $.get('http://veuge_c.byethost8.com/moduloIngreso/restIngreso.php').done(function(resultado){
 
         for(var i=0; i<resultado.length-1; ++i){
             var cadena = "<tr><td>"
@@ -49,7 +49,7 @@ var funcionEstadisticas = function(e){
     $('.tabla').hide();
     $('.grafica').show();
 
-    $.get('../../serverSide/moduloIngreso/restGraficas.php').done(function(arrayFechaTotal){
+    $.get('http://veuge_c.byethost8.com/moduloIngreso/restGraficas.php').done(function(arrayFechaTotal){
         var dia = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
         var labels = [];
         var values = [];

@@ -6,7 +6,7 @@ $(document).ready(function(){
     $('#volver').on('click', funcionVolver);
 
     // OBTENER MONTO DE AHORRO (arreglar)
-    $.get('../../serverSide/moduloAhorro/restAhorro.php').done(function(resultado){
+    $.get('http://veuge_c.byethost8.com/moduloAhorro/restAhorro.php').done(function(resultado){
         for(var i = 0; i < resultado.length - 1; ++ i) {
             var cad = '<p><strong>Hoy puedes ahorrar: </strong>';
             cad += resultado[i].montoAhorro;
@@ -28,11 +28,11 @@ var funcionVolver = function(e){
 }
 var funcionAhorrar = function(e){
     alert("Pon el dinero en tu alcancia tambien!");
-    $.get('../../serverSide/moduloAhorro/restAhorro.php').done(function(resultado){
+    $.get('http://veuge_c.byethost8.com/moduloAhorro/restAhorro.php').done(function(resultado){
         var JSONObject= { // objeto JSON con valores de inputs
             "montoAhorro":resultado[0].montoAhorro
         };
-        $.post("../../serverSide/moduloAhorro/restAhorro.php", JSONObject).done(function(data) { //AJAX con jquery envia a rest.php objeto JSON
+        $.post("http://veuge_c.byethost8.com/moduloAhorro/restAhorro.php", JSONObject).done(function(data) { //AJAX con jquery envia a rest.php objeto JSON
             alert(JSON.stringify (JSONObject));
         }).error(function(){alert("error!!!")});
     });
@@ -50,14 +50,14 @@ var funcionNuevaMeta = function(e){
         paraque: paraque,
         monto: monto_ma
     }
-    $.post('../../serverSide/moduloAhorro/restMeta.php', JSONObjectMeta).done(function(data){
+    $.post('http://veuge_c.byethost8.com/moduloAhorro/restMeta.php', JSONObjectMeta).done(function(data){
         alert(JSON.stringify(data));
         funcionVolver();
     }).error(function(){alert("error!!!")});
 }
 var funcionObtenerMetas = function(){
-    $.get('../../serverSide/moduloAhorro/restMeta.php').done(function(data){
-        $.get('../../serverSide/moduloAhorro/restAhorro.php').done(function(resultado){
+    $.get('http://veuge_c.byethost8.com/moduloAhorro/restMeta.php').done(function(data){
+        $.get('http://veuge_c.byethost8.com/moduloAhorro/restAhorro.php').done(function(resultado){
             var totalA = parseInt(resultado[resultado.length - 1].totalAhorro);
             var porcentaje, claseP;
             for(var i = 0; i < data.length; ++ i){

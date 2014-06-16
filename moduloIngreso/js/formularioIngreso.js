@@ -1,6 +1,6 @@
 $(document).ready(function(){ // cuando este listo el documento
     
-    $.get('../../serverSide/moduloIngreso/rest.php').done(function(resultado){
+    $.get('http://veuge_c.byethost8.com/moduloIngreso/rest.php').done(function(resultado){
         for(var i=0; i<resultado.length; ++i){
             var cadena = "<option value='"+resultado[i].codIngreso+"'>"+resultado[i].nombreIngreso+"</option>";
             //alert(cadena);
@@ -22,7 +22,7 @@ var funcionGuardar = function(e){
         $("#nuevo-tipo").addClass("has-error");
     }
     else{
-        $.get('../../serverSide/moduloIngreso/rest.php').done(function(listaIngresos){
+        $.get('http://veuge_c.byethost8.com/moduloIngreso/rest.php').done(function(listaIngresos){
             var ingresoValido = true;
             for(var i = 0; i < listaIngresos.length; ++i) {
                 if (nuevoIngreso === listaIngresos[i].nombreIngreso){
@@ -42,8 +42,8 @@ var funcionGuardar = function(e){
                     "nombreIngreso":  nuevoIngreso,
                     "descripcionIngreso": "esto es nuevo"
                 };
-                $.post("../../serverSide/moduloIngreso/restIngreso.php", JSONObjectIngreso).done(function(datos){
-                    $.get('../../serverSide/moduloIngreso/rest.php').done(function(resultado){
+                $.post("http://veuge_c.byethost8.com/moduloIngreso/restIngreso.php", JSONObjectIngreso).done(function(datos){
+                    $.get('http://veuge_c.byethost8.com/moduloIngreso/rest.php').done(function(resultado){
                         for(var i=0; i<resultado.length; ++i){
                             var cadena = "<option value='"+resultado[i].codIngreso+"'>"+resultado[i].nombreIngreso+"</option>";
                             $("#ingreso").append(cadena);
@@ -102,7 +102,7 @@ var funcionGuardarIngreso = function (e) { //captura evento click a boton submit
             "montoIngreso":monto,
             "fechaIngreso": fecha
         };
-        $.post("../../serverSide/moduloIngreso/rest.php", JSONObject).done(function( data ) { //AJAX con jquery envia a rest.php objeto JSON
+        $.post("http://veuge_c.byethost8.com/moduloIngreso/rest.php", JSONObject).done(function( data ) { //AJAX con jquery envia a rest.php objeto JSON
             window.location="ingresos.html"; //show = cadena de objeto JSON
         }).error(function(){alert("error!!!")}); //en caso de error muestra mensaje
     }

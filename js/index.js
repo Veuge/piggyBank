@@ -16,8 +16,8 @@ $(document).ready(function(){
         $('#botones').hide();
         $('.grafica').show();
 
-        $.get('../serverSide/restGraficasIngreso.php').done(function(vectorDeIngresos){
-            $.get('../serverSide/restGraficasGasto.php').done(function(vectorDeGastos){
+        $.get('http://veuge_c.byethost8.com/restGraficasIngreso.php').done(function(vectorDeIngresos){
+            $.get('http://veuge_c.byethost8.com/restGraficasGasto.php').done(function(vectorDeGastos){
                 var labels;
                 var labelsIngreso, labelsGasto, valuesIngreso, valuesGasto;
                 var ultimoIngreso, ultimoGasto;

@@ -1,6 +1,6 @@
 $(document).ready(function(){
             
-    $.get('../../serverSide/moduloGastos/restGasto.php').done(function(resultado){
+    $.get('http://veuge_c.byethost8.com/moduloGastos/restGasto.php').done(function(resultado){
 
         for(var i=0; i<resultado.length-1; ++i){
             var cadena = "<tr><td>"
@@ -22,7 +22,7 @@ $(document).ready(function(){
         $('.tabla').hide();
         $('.grafica').show();
 
-        $.get('../../serverSide/moduloGastos/restGraficas.php').done(function(arrayFechaTotal){
+        $.get('http://veuge_c.byethost8.com/moduloGastos/restGraficas.php').done(function(arrayFechaTotal){
             var dia = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
             var labels = [];
             var values = [];
